@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Platform Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Music Platform Converter</h1>
+            <p>Convert between Spotify and Qobuz links</p>
+        </header>
+        
+        <main>
+            <div class="converter-form">
+                <div class="input-group">
+                    <label for="link-input">Paste your Spotify or Qobuz link</label>
+                    <input type="text" id="link-input" placeholder="https://open.spotify.com/... or https://open.qobuz.com/...">
+                </div>
+                <button id="convert-btn">Convert</button>
+            </div>
+            
+            <div id="loader" class="hidden">
+                <div class="spinner"></div>
+                <p>Converting...</p>
+            </div>
+            
+            <div id="result" class="hidden">
+                <div class="result-header">
+                    <h2 id="result-title">Found Match</h2>
+                    <span id="result-type-badge"></span>
+                </div>
+                
+                <div class="result-details">
+                    <div id="metadata-comparison"></div>
+                </div>
+                
+                <div class="result-actions">
+                    <div class="result-link-container">
+                        <input type="text" id="result-link" readonly>
+                        <button id="copy-btn">Copy</button>
+                    </div>
+                    <a id="open-link" target="_blank" rel="noopener noreferrer">Open in App</a>
+                </div>
+            </div>
+            
+            <div id="error" class="hidden">
+                <div class="error-icon">❌</div>
+                <h3>Conversion Failed</h3>
+                <p id="error-message"></p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>This converter app allows you to find matching content between Spotify and Qobuz.</p>
+        </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
